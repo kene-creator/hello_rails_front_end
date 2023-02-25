@@ -10,13 +10,7 @@ function Greeting() {
     dispatch(retrieveGreetings());
   }, []);
 
-  return (
-    <div>
-      {greetings.map((greeting) => (
-        <h1 key={greeting.message}>{greeting.message}</h1>
-      ))}
-    </div>
-  );
+  return <div>{greetings.message}</div>;
 }
 
 export default Greeting;
