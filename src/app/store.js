@@ -1,8 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import thunk from 'redux-thunk';
+import greetings from './greetings';
 
-export const store = configureStore({
+const rootReducer = {
   reducer: {
-    counter: counterReducer,
+    greetings,
   },
-});
+};
+
+const store = configureStore(rootReducer, applyMiddleware(thunk));
+
+export default store;
